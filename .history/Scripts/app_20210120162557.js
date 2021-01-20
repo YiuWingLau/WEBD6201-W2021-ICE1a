@@ -7,42 +7,6 @@
 (function()
 {
     "use strict";
-    function displayAboutPage()
-    {
-
-    }
-
-    function displayProductsPage()
-    {
-
-    }
-
-    function displayServicesPage()
-    {
-
-    }
-
-    function displayContactPage()
-    {
-        let sendButton = document.querySelector("button#sendButton");
-
-        let fullName = document.getElementById("fullName");
-        fullName.addEventListener("blur", function(event)){
-            if(fullName.value.length < 1)
-            {
-                fullName.focus();
-                fullName.querySelector();
-            }
-        };
-        sendButton.addEventListener("click", function(event){
-            event.preventDefault();
-
-            console.log(fullName, value);
-            console.log(contactNumber, value);
-            console.log(emailAddress, value);
-
-        });
-    }
     function Start()
     {
         console.log("App Started...");

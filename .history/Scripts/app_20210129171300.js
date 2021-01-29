@@ -1,9 +1,8 @@
 /* custom JavaScript goes here */
 
-//IIFE - Immediately Invoked Function Expression
-//AKA - Anonymous Self-Executing Function
-//Closure - limits scope leak
-
+//IIFe - Immediately Invoked Function Expression
+//AKA: Anonymous Self-Executing Function
+// Also a "Closure"
 "use strict";
 
 (function()
@@ -55,11 +54,8 @@
         //mainContent.firstElementChild.textContent = "Welcome Home!";
 
         mainContent.innerHTML = `<h1 id="firstHeading">Welcome to WEBD6201 - Lab 1</h1>
-         <p id="paragraphOne" class="fs-3 fw-bold">This is my first Paragraph</p>
-        `;
-        
+        <p id="paragraphOne" class="fs-3 fw-bold">This is my first Paragraph</p>`;   
     }
-
     function displayAbout()
     {
 
@@ -82,7 +78,7 @@
 
         // form validation
         let fullName = document.getElementById("fullName");
-        fullName.addEventListener("blur", function() {
+        fullName.addEventListener("blur", function(){
             if(fullName.value.length < 2)
             {
                 fullName.focus();
@@ -97,18 +93,16 @@
                 messageArea.hidden = true;
             }
         });
-
         let sendButton = document.getElementById("sendButton");
         sendButton.addEventListener("click", function(event){
             //event.preventDefault();
-            
-            let contact = new Contact(fullName.value, contactNumber.value, emailAddress.value);
 
+            let contact = new Contact(fullName.value, contactNumber.value, emailAddress.value);
             if(contact.serialize())
             {
               localStorage.setItem((localStorage.length + 1).toString(), contact.serialize());
             }
-           
+
         });
     }
 
@@ -139,36 +133,28 @@
       }
     }
 
-     
-
     function Start()
     {
         console.log("App Started...");
 
-        switch (document.title) 
+        switch(document.title)
         {
-          case "Home":
-              displayHome();
-            break;
-          case "About":
-              displayAbout();
-            break;
-          case "Projects":
-              displayProjects();
-            break;
-          case "Services":
-              displayServices();
-            break;
-          case "Contact":
-              displayContact();
-            break;
-          case "Contact-List":
-            displayContactList();
-          break;
+            case 'Home':
+                displayHome();
+                break;
+            case 'About':
+                displayAbout();
+                break;
+            case 'Projects':
+                displayProjects();
+                break;
+            case 'Services':
+                displayServices();
+                break;
+            case 'Contact':
+                displayContact();
+                break;
         }
-        
     }
-
     window.addEventListener("load", Start);
-
 })();
